@@ -1,0 +1,724 @@
+JTM 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JTM - IT & Business Analytics | Transformamos procesos en resultados</title>
+  <meta name="description" content="Next-gen business systems powered by data & automation. Desarrollamos sistemas y activos digitales para empresas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-2: #0d1a36;
+      --surface: #0f1f3f;
+      --surface-2: #132a55;
+      --accent: #b88a2a;
+      --accent-soft: #d4af37;
+      --text: #f7f9ff;
+      --muted: #bcc9e6;
+      --line: rgba(184, 138, 42, 0.32);
+      --line-soft: rgba(255, 255, 255, 0.15);
+      --radius: 16px;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(184, 138, 42, 0.12), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(49, 69, 124, 0.35), transparent 30%),
+        linear-gradient(155deg, var(--bg), var(--bg-2));
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(7, 11, 20, 0.75);
+      border-bottom: 1px solid var(--line-soft);
+      transition: 0.3s ease;
+    }
+
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .logo-subtitle {
+      font-size: 0.64rem;
+      letter-spacing: 2.2px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    #navMenu {
+      display: flex;
+      list-style: none;
+      gap: 1.6rem;
+    }
+
+    #navMenu a {
+      color: #dbe3f5;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 0.2rem 0.1rem;
+    }
+
+    #navMenu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    #navMenu a:hover {
+      color: #fff;
+    }
+
+    #navMenu a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 26px;
+      height: 2px;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .hero {
+      padding: 140px 0 90px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(7, 11, 20, 0.3), rgba(7, 11, 20, 0.9)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 40px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 930px;
+      margin: 0 auto;
+    }
+
+    .hero-logo {
+      width: min(350px, 80vw);
+      border-radius: 20px;
+      margin-bottom: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .tagline {
+      color: var(--accent-soft);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: clamp(0.85rem, 2vw, 1.15rem);
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .description {
+      color: #fff;
+      font-size: 1.17rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: #d6ddef;
+      font-size: 1.03rem;
+      max-width: 820px;
+      margin: 0.6rem auto;
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(184, 138, 42, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #c79b3f;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #f5f8ff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent-soft);
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.6rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .service-card {
+      background: linear-gradient(160deg, rgba(19, 31, 63, 0.95), rgba(16, 26, 52, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line);
+    }
+
+    .service-icon {
+      margin-bottom: 0.7rem;
+      color: var(--accent-soft);
+    }
+
+    .service-icon svg {
+      width: 1.9rem;
+      height: 1.9rem;
+      stroke-width: 2;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      color: #c2cbe0;
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .service-features {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-features li {
+      padding-left: 1.1rem;
+      position: relative;
+      color: #d9e0ef;
+      font-size: 0.92rem;
+    }
+
+    .service-features li::before {
+      content: "•";
+      color: var(--accent-soft);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+    }
+
+    .price {
+      font-size: 1.55rem;
+      color: var(--accent-soft);
+      font-weight: 800;
+    }
+
+    .price-label {
+      color: #b2bbd1;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .process-step {
+      background: rgba(16, 26, 52, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+
+    .process-step h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.08rem;
+    }
+
+    .process-step p {
+      color: #c2cbe0;
+      font-size: 0.93rem;
+    }
+
+    .dev-time {
+      margin-top: 1.2rem;
+      background: rgba(184, 138, 42, 0.12);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.1rem;
+      text-align: center;
+      color: #e9edf7;
+    }
+
+    #contacto {
+      background:
+        linear-gradient(165deg, rgba(7, 11, 20, 0.93), rgba(13, 26, 54, 0.93)),
+        radial-gradient(circle at 80% 20%, rgba(184, 138, 42, 0.12), transparent 35%);
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-item {
+      background: rgba(16, 26, 52, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .contact-item-icon {
+      margin-bottom: 0.5rem;
+      color: var(--accent-soft);
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-item-icon svg {
+      width: 1.85rem;
+      height: 1.85rem;
+      stroke-width: 2;
+    }
+
+    .contact-item h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: #d8e0f2;
+      font-size: 0.95rem;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent-soft);
+    }
+
+    .contact-cta {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: #b8c2d8;
+      font-size: 0.92rem;
+    }
+
+    .hashtag {
+      color: var(--accent-soft);
+      margin-top: 0.4rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    @media (max-width: 880px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      #navMenu {
+        position: fixed;
+        top: 82px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 82px);
+        background: rgba(7, 11, 20, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+        transition: left 0.25s ease;
+      }
+
+      #navMenu.active {
+        left: 0;
+      }
+
+      .logo-text {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo-container">
+          <div class="logo-text">
+            <span class="logo">JTM</span>
+            <span class="logo-subtitle">IT & BUSINESS ANALYTICS</span>
+          </div>
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul id="navMenu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <h1>JTM</h1>
+        <p class="tagline">IT & BUSINESS ANALYTICS</p>
+        <p class="description">Transformamos procesos en resultados</p>
+        <p>Next-gen business systems powered by data & automation.</p>
+        <p>Desarrollamos sistemas y activos digitales para fortalecer tu presencia, optimizar tus procesos y generar oportunidades mediante tecnología estratégica.</p>
+
+        <div class="hero-actions">
+          <a href="https://calendar.app.google/J9SmLaBcfmdXXYTEA" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Solicitar Propuesta</a>
+          <a href="#servicios" class="btn btn-ghost">Ver Servicios</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-subtitle">Soluciones digitales con identidad premium y enfoque en conversión.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon"><i data-lucide="globe"></i></div>
+          <h3>Página Web Corporativa</h3>
+          <p>Plataforma institucional para posicionar tu marca y generar confianza comercial.</p>
+          <ul class="service-features">
+            <li>Diseño personalizado</li>
+            <li>Hasta 5 secciones</li>
+            <li>Integración WhatsApp</li>
+            <li>Responsive y SEO básico</li>
+            <li>1 ronda de ajustes</li>
+          </ul>
+          <div class="price">S/. 2,200<div class="price-label">Inversión</div></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i data-lucide="calendar-days"></i></div>
+          <h3>Sistema de Agendamiento</h3>
+          <p>Automatiza la gestión de citas con reservas online y panel administrativo.</p>
+          <ul class="service-features">
+            <li>Calendario automatizado</li>
+            <li>Recordatorios por email</li>
+            <li>Gestión de disponibilidad</li>
+            <li>Integración con calendario</li>
+          </ul>
+          <div class="price">S/. 1,300<div class="price-label">Inversión</div></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i data-lucide="target"></i></div>
+          <h3>Landing Page Estratégica</h3>
+          <p>Página orientada a conversión para campañas y lanzamientos.</p>
+          <ul class="service-features">
+            <li>Estructura enfocada en leads</li>
+            <li>Copy persuasivo</li>
+            <li>CTA claros</li>
+            <li>Tracking Meta/Google</li>
+          </ul>
+          <div class="price">S/. 950<div class="price-label">Inversión</div></div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i data-lucide="mail"></i></div>
+          <h3>Brochure + Mailing</h3>
+          <p>Material comercial premium con automatización básica de comunicación.</p>
+          <ul class="service-features">
+            <li>Brochure profesional (PDF)</li>
+            <li>Configuración plataforma mailing</li>
+            <li>Secuencia de bienvenida</li>
+            <li>Segmentación inicial</li>
+          </ul>
+          <div class="price">S/. 1,100<div class="price-label">Inversión</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestro Proceso</h2>
+        <p class="section-subtitle">Metodología clara para acelerar resultados.</p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step">
+          <div class="step-number">1</div>
+          <h3>Análisis</h3>
+          <p>Entendemos objetivos, cliente ideal y puntos críticos de tu operación.</p>
+        </article>
+
+        <article class="process-step">
+          <div class="step-number">2</div>
+          <h3>Diseño y Desarrollo</h3>
+          <p>Construimos tu solución con un enfoque visual sólido y performance.</p>
+        </article>
+
+        <article class="process-step">
+          <div class="step-number">3</div>
+          <h3>Revisión</h3>
+          <p>Validamos contenido, estructura y experiencia con ajustes estratégicos.</p>
+        </article>
+
+        <article class="process-step">
+          <div class="step-number">4</div>
+          <h3>Entrega</h3>
+          <p>Publicamos, medimos y dejamos base lista para escalar.</p>
+        </article>
+      </div>
+
+      <div class="dev-time">
+        <h3>Tiempo de Desarrollo</h3>
+        <p>4 a 6 semanas desde la aprobación del proyecto</p>
+        <p>Modalidad de pago: 50% al inicio | 50% contra entrega</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">¿Listo para Transformar tu Negocio?</h2>
+        <p class="section-subtitle">Conversemos y armamos una propuesta a tu medida.</p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-item">
+          <div class="contact-item-icon"><i data-lucide="phone"></i></div>
+          <h3>Teléfono</h3>
+          <p><a href="tel:+51921587585">+51 921 587 585</a></p>
+        </article>
+
+        <article class="contact-item">
+          <div class="contact-item-icon"><i data-lucide="mail"></i></div>
+          <h3>Email</h3>
+          <p><a href="mailto:jtm.it.ba@gmail.com">jtm.it.ba@gmail.com</a></p>
+        </article>
+
+        <article class="contact-item">
+          <div class="contact-item-icon"><i data-lucide="briefcase"></i></div>
+          <h3>Propuesta</h3>
+          <p>Soluciones personalizadas para tu negocio</p>
+        </article>
+      </div>
+
+      <div class="contact-cta">
+        <a href="https://calendar.app.google/J9SmLaBcfmdXXYTEA" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Solicitar Reunión</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 JTM IT & Business Analytics. Todos los derechos reservados.</p>
+      <p>Transformamos procesos en resultados</p>
+      <p class="hashtag">#TechnologyAsARight</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide/dist/umd/lucide.min.js"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    document.querySelectorAll("nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("navMenu").classList.remove("active");
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      header.style.background =
+        window.scrollY > 80 ? "rgba(7, 11, 20, 0.95)" : "rgba(7, 11, 20, 0.75)";
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
