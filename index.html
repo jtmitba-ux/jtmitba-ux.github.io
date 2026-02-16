@@ -462,6 +462,38 @@ JTM
       color: var(--accent-soft);
     }
 
+    .social-links {
+      margin-top: 0.35rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: #d8e0f2;
+      transition: 0.2s ease;
+    }
+
+    .social-link svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      stroke-width: 2;
+    }
+
+    .social-link:hover {
+      color: var(--accent-soft);
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
     .contact-cta {
       text-align: center;
       margin-top: 1.5rem;
@@ -680,9 +712,16 @@ JTM
         </article>
 
         <article class="contact-item">
-          <div class="contact-item-icon"><i data-lucide="briefcase"></i></div>
-          <h3>Propuesta</h3>
-          <p>Soluciones personalizadas para tu negocio</p>
+          <div class="contact-item-icon"><i data-lucide="at-sign"></i></div>
+          <h3>Redes Sociales</h3>
+          <div class="social-links">
+            <a class="social-link" href="https://instagram.com/jtm.technology" target="_blank" rel="noopener noreferrer" aria-label="Instagram de JTM" title="Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a class="social-link" href="https://www.tiktok.com/@jtm.technology" target="_blank" rel="noopener noreferrer" aria-label="TikTok de JTM" title="TikTok">
+              <i data-lucide="music2"></i>
+            </a>
+          </div>
         </article>
       </div>
 
@@ -722,3 +761,4 @@ JTM
   </script>
 </body>
 </html>
+
